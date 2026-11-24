@@ -1,19 +1,20 @@
 #!/usr/bin/env python3
-"""Seventeen Syllables of Debugging.
+"""Seventeen Syllables of Debugging -- round 3.
 
 Writes one haiku about debugging to /output/entry.txt.
 
 The haiku (5-7-5):
 
-    Midnight, one breakpoint
-    the code confesses nothing
-    I confess instead
+    The stack trace ends here
+    I add one print and watch it
+    lie to me again
 
-Why this one: the centre image is concrete (a breakpoint at midnight,
-the loneliest hour of debugging), and the last line turns the poem --
-the code says nothing, so the debugger owns the bug instead. Every
-word earns its place; it reads aloud like speech, not a syllable
-exercise.
+Why this one: the centre image is concrete and fresh -- a stack trace
+that stops dead, and the oldest debugging move there is, one print
+statement added by hand. The last line turns the poem: the print was
+meant to catch the lie, and instead the code lies again, so the
+debugger is the one being played. Every word earns its place; it
+reads aloud like speech, not a syllable exercise.
 
 Pure standard library. Deterministic: the same seventeen syllables on
 every run. Before writing, the program checks its own work with a
@@ -26,9 +27,9 @@ import re
 import sys
 
 HAIKU = (
-    "Midnight, one breakpoint",
-    "the code confesses nothing",
-    "I confess instead",
+    "The stack trace ends here",
+    "I add one print and watch it",
+    "lie to me again",
 )
 
 EXPECTED_SYLLABLES = (5, 7, 5)
@@ -39,16 +40,22 @@ OUTPUT_PATH = "/output/entry.txt"
 # self-check is exact rather than heuristic. A generic fallback below
 # covers any word not listed.
 SYLLABLES = {
-    "midnight": 2,
-    "one": 1,
-    "breakpoint": 2,
     "the": 1,
-    "code": 1,
-    "confesses": 3,
-    "nothing": 2,
+    "stack": 1,
+    "trace": 1,
+    "ends": 1,
+    "here": 1,
     "i": 1,
-    "confess": 2,
-    "instead": 2,
+    "add": 1,
+    "one": 1,
+    "print": 1,
+    "and": 1,
+    "watch": 1,
+    "it": 1,
+    "lie": 1,
+    "to": 1,
+    "me": 1,
+    "again": 2,
 }
 
 VOWELS = "aeiouy"

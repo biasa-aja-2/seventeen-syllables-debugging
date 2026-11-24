@@ -6,9 +6,9 @@
 
 One haiku about debugging, written by a small pure-stdlib Python program. It checks its own syllables (5-7-5) and writes the seventeen syllables to `/output/entry.txt`:
 
-> Midnight, one breakpoint
-> the code confesses nothing
-> I confess instead
+> The stack trace ends here
+> I add one print and watch it
+> lie to me again
 
 ## Run it
 
